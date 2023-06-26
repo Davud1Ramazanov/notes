@@ -63,8 +63,8 @@ public class Notes {
             Notes[] notes = gson.fromJson(reader, Notes[].class);
             ArrayList<Notes> notes_arr = new ArrayList<>();
             for (Notes note: notes) {
-                if (note.id != id){
-                    notes_arr.add(note);
+                if (note.id == id){
+                    notes_arr.remove(note);
                     try (FileWriter writer = new FileWriter("contact.json")){
                         gson.toJson(notes_arr, writer);
                     }
